@@ -3,7 +3,7 @@ const {join} = require('path');
 module.exports = {
 	entry: join(__dirname, 'index.js'),
 	output: {
-		path: join(__dirname, 'src', 'server', 'express', 'static'),
+		path: join(__dirname, '..', 'server', 'express', 'static'),
 		filename: 'bundle.js'
 	},
 	module: {
