@@ -3,7 +3,8 @@ const {join} = require('path');
 module.exports = {
 	entry: join(__dirname, 'index.js'),
 	output: {
-		filename: join('src', 'server', 'express', 'static', 'bundle.js')
+		path: join(__dirname, 'src', 'server', 'express', 'static'),
+		filename: 'bundle.js'
 	},
 	module: {
 		rules: [
