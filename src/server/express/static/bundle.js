@@ -18104,8 +18104,8 @@ const reactDOM = __webpack_require__(143);
 const graph = __webpack_require__(157);
 
 reactDOM.render(
-				react.createElement(graph, {}, 'string form react'),
-				document.getElementById('reactRoot')
+	react.createElement(graph, {}, 'string form react'),
+	document.getElementById('reactRoot')
 );
 
 
@@ -38316,25 +38316,21 @@ module.exports = function() {
 var React = __webpack_require__(10);
 var Chart = __webpack_require__(158);
 
-module.exports = class extends React.Component {
-
-	render() {
-		return (
-			React.createElement("canvas", {width: "500px", ref: canvas => this.canvas = canvas})
-		);
+module.exports = class extends React.Component 
+{
+	render() 
+	{
+		return React.createElement("canvas", {ref: canvas => this.canvas = canvas});
 	}
 
-	async componentDidMount() {
-		var data = await fetch('/data');
+	async componentDidMount() 
+	{
+		this.chart = new Chart(this.canvas, await (await fetch('/data')).json());
+	}
 
-		var options = {
-			type: 'scatter',
-			data: {
-				datasets: await data.json()
-			}
-		};
-
-		this.graph = new Chart(this.canvas, options);
+	componentWillUnmount()
+	{
+		this.chart.destroy();
 	}
 };
 

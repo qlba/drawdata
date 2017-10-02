@@ -1,4 +1,5 @@
-module.exports.bind = function(server, data) {
-		require('./root').bind(server, data);
+module.exports.bind = function(server, config) 
+{
+	require('./root').bind(server, config);
 };
 
